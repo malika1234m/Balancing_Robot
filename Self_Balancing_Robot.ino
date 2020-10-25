@@ -320,7 +320,7 @@ void Code_left() {
 
   count_left ++;
 
-} //左测速码盘计数
+}
 
 
 
@@ -329,6 +329,30 @@ void Code_right() {
   count_right ++;
 
 } 
+void loop() {
+  
+  //The main function of the cycle detection and superimposed pulse measurement car speed change using both the pulse into the pulse superimposed to increase the number of pulses motor to ensure the accuracy of the car.
+  attachInterrupt(5, Code_right, CHANGE);
+  attachInterrupt(0, Code_left, CHANGE);
+  Uart_Recieve();
+  Bluetooth();
+}
+
+
+void Code_left() {
+
+  count_left ++;
+
+} 
+
+
+
+void Code_right() {
+
+  count_right ++;
+
+} 
+
 
 
 
